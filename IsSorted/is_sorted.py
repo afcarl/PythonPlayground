@@ -15,6 +15,11 @@ __status__ = "Development"
 
 
 def is_sorted(input_list):
+    """
+    :rtype: Boolean
+    :param input_list: A list of numbers
+    :return: True if input list is same as the original one
+    """
     orig = input_list
     if orig == sorted(input_list):
         return True
@@ -22,13 +27,12 @@ def is_sorted(input_list):
         return False
 
 
-
 # Test Cases
 
-A = [11,8,5,6,10]
+A = [11, 8, 5, 6, 10]
 
 print is_sorted(A)
 
-B = [1,2,3,4,5]
+B = [1, 2, 3, 4, 5]
 
 print is_sorted(B)
