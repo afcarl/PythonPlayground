@@ -16,7 +16,7 @@ __status__ = "Development"
 
 def is_sorted(input_list):
     """
-    :rtype: Boolean
+    :rtype: bool
     :param input_list: A list of numbers
     :return: True if input list is same as the original one
     """

@@ -15,7 +15,7 @@ __status__ = "Development"
 
 def has_duplicates(input_list):
     """
-    :rtype: Boolean
+    :rtype: bool
     :param input_list: A list of values
     :return: returns True if there are any duplicate elements
     """

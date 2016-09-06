@@ -15,7 +15,7 @@ __status__ = "Development"
 
 def is_anagram(str1, str2):
     """
-    :rtype: Boolean
+    :rtype: bool
     :param str1: First string
     :param str2: Second string
     :return: True if the two strings are anagrams
