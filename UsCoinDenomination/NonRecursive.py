@@ -2,8 +2,8 @@
 Give an O(1) (non-recursive!) algorithm to compute the number of returned coins.
 """
 
-denominations = [50, 25, 10, 5, 1]
-
+# denominations = [50, 25, 10, 5, 1]
+denominations = [10,6,1]
 
 def make_change(amount):
     if amount < 0:
@@ -22,6 +22,6 @@ def make_change(amount):
 
 
 make_change(-1)
-make_change(50)
-make_change(25)
-make_change(66)
+#make_change(50)
+#make_change(25)
+make_change(18)
