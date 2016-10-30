@@ -27,12 +27,12 @@ def sa(model):
     :param model: given model instance
     :return: best state
     """
-    print("Running simulated annealing for ", model.name)
+    print("Executing simulated annealing for ", model.name)
     compute_energy_bounds(model)
     sc = model.any()
     ec = model.evaluate(sc)
 
-    print("Initial x = %s and energy = %s" % (str(sc), str(ec)))
+    print("Initial point = %s and energy = %s" % (str(sc), str(ec)))
 
     sb = sc
     eb = ec
@@ -40,7 +40,7 @@ def sa(model):
     kmax = 10000
 
     while k < kmax and eb > min_e:
-        if k == 1 or k % 50 == 0:
+        if k == 1 or k % 15 == 0:
             print("\n%d, %f, " % (k, eb), end="")  # Print the evaluation
         sn = neighbour(model, sc)  # Pick some neighbour
         en = model.evaluate(sn)  # Compute its energy
@@ -60,7 +60,7 @@ def sa(model):
             print(".", end="")
         k += 1
     print("\n\nBest solution by simulated annealing x = %s with normalized energy = %s ." % (str(sb), str(eb)))
-    print("SimulatedAnnealing ends here \n\n")
+    print
     return sb
 
 

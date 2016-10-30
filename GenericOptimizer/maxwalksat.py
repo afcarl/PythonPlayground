@@ -38,7 +38,6 @@ def mws(m):
     print("#iterations:", tries)
     print("best solution:", best)
     print("best score:", m.evaluate(best))
-    print("MaxWalkSat ends here\n\n")
 
 
 def mutate_any(m, x):
