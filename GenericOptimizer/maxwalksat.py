@@ -6,7 +6,9 @@ RANGES = [(0, 10), (0, 10), (1, 5), (0, 6), (1, 5), (0, 10)]
 
 def mws(m):
     """
-    Runs MaxWalkSat algorithm to minimize Osyczka2 model
+    Driver method for MaxWalkSat
+    :param m: instance of model
+    :return: None
     """
     print("Running max walk sat for ", m.name)
     tries = 15;
@@ -16,7 +18,7 @@ def mws(m):
     for i in xrange(tries):
         current = m.any()
         for j in xrange(changes):
-            if (m.evaluate(current) < m.evaluate(best)):
+            if m.evaluate(current) < m.evaluate(best):
                 say("!")
                 best = current[:]
             if p < random():
@@ -25,10 +27,10 @@ def mws(m):
             else:
                 prev = current[:]
                 current = mutate_x(m, current)
-            if (m.evaluate(current) < m.evaluate(best)):
+            if m.evaluate(current) < m.evaluate(best):
                 say("!")
                 best = current[:]
-            elif (m.evaluate(current) < m.evaluate(prev)):
+            elif m.evaluate(current) < m.evaluate(prev):
                 say("+")
             else:
                 say(".")
@@ -41,7 +43,10 @@ def mws(m):
 
 def mutate_any(m, x):
     """
-    Mutates a random decision in the solution
+    Mutate a decision for a problem
+    :param m: instance of model
+    :param x: decision
+    :return: mutated decision
     """
     i = randint(0, len(x) - 1)
     x[i] = randint(RANGES[i][0], RANGES[i][1])
@@ -51,13 +56,13 @@ def mutate_any(m, x):
 
 
 def mutate_x(m, x):
-    """
-    Mutates the entire decision
-    """
 
     def mutate_ith(x, i):
         """
-        Mutates the i-th decision
+        Mutate ith decision
+        :param x: decision
+        :param i: ith index
+        :return: murated decision
         """
         xi = x[i]
         delta = (RANGES[i][1] - RANGES[i][0]) / 10
